@@ -4,12 +4,12 @@ const container = document.querySelector("#container");
 
 const render = async () => {
 
-    const governors = GovernorsDropdown();
+    const governors = await GovernorsDropdown();
 
     const composedHTML = 
     `
         <h2>Solar System Mining Marketplace</h2>
-        
+        ${governors}
     `;
 
     container.innerHTML = composedHTML;
