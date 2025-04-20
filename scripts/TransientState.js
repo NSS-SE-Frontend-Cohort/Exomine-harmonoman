@@ -6,7 +6,6 @@ const state = {
 export const setGovernor = (governorId) => {
     state.selectedGovernor = governorId;
     document.dispatchEvent(new CustomEvent("stateChanged"));
-    console.log("state: ", state);
 }
 
 export const setFacility = (facilityId) => {
