@@ -1,10 +1,21 @@
 const state = {
+    selectedGovernor: 0,
+    selectedFacility: 0 
+}
 
+export const setGovernor = (governorId) => {
+    state.selectedGovernor = governorId;
+    document.dispatchEvent(new CustomEvent("stateChanged"));
+    console.log("state: ", state);
 }
 
 export const setFacility = (facilityId) => {
-    state.selectedFacility = facilityId
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    state.selectedFacility = facilityId;
+    document.dispatchEvent(new CustomEvent("stateChanged"));
+}
+
+export const getTransientState = () => {
+    return structuredClone(state);
 }
 
 export const purchaseMineral = () => {
