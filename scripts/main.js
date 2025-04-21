@@ -1,18 +1,21 @@
 import { GovernorsDropdown } from "./Governors.js";
 import { DisplayColonyInventory } from "./ColonyInventories.js"
+import { DisplayFacilities } from "./Facilities.js";
 
 const container = document.querySelector("#container");
 
 const render = async () => {
 
     const governors = await GovernorsDropdown(); 
-    const colonyInventory = await DisplayColonyInventory();
+    const colonyInventory = DisplayColonyInventory();
+    const facilities = DisplayFacilities();
 
     const composedHTML = 
     `
         <h2>Solar System Mining Marketplace</h2>
         ${governors}
         ${colonyInventory}
+        ${facilities}
     `;
 
     container.innerHTML = composedHTML;
