@@ -1,6 +1,7 @@
 import { GovernorsDropdown } from "./Governors.js";
 import { DisplayColonyInventory } from "./ColonyInventories.js"
 import { DisplayFacilities } from "./Facilities.js";
+import { DisplayFacilityMinerals } from "./FacilityMinerals.js";
 
 const container = document.querySelector("#container");
 
@@ -9,6 +10,7 @@ const render = async () => {
     const governors = await GovernorsDropdown(); 
     const colonyInventory = DisplayColonyInventory();
     const facilities = await DisplayFacilities();
+    const facilityMinerals = DisplayFacilityMinerals();
 
     const composedHTML = 
     `
@@ -19,6 +21,9 @@ const render = async () => {
         </div>
         <div class="facilities-container">
             ${facilities}
+        </div>
+        <div class="facility-minerals-container">
+            ${facilityMinerals}
         </div>
     `;
 
