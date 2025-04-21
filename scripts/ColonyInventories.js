@@ -19,13 +19,12 @@ document.addEventListener("stateChanged", async () => {
             const colonyInventory = inventories.filter(inv => inv.colonyId === colonyId);
 
             inventoryHTML = `
-                <h2>${selectedGovernor.colony.name} Inventory</h2>
-
-                <ul>
-                    ${colonyInventory.map(inv => `<li>${inv.quantity} tons of ${inv.mineral.name}</li>`).join("")}
-                </ul>
-
-            `
+                <div class="inventory">
+                    <h2>${selectedGovernor.colony.name} Inventory</h2>
+                    
+                    ${colonyInventory.map(inv => `<div>${inv.quantity} tons of ${inv.mineral.name}</div>`).join("")}
+                    
+                </div>`
 
             document.dispatchEvent(new CustomEvent("reRender"));
         } 
