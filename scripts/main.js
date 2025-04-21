@@ -8,14 +8,18 @@ const render = async () => {
 
     const governors = await GovernorsDropdown(); 
     const colonyInventory = DisplayColonyInventory();
-    const facilities = DisplayFacilities();
+    const facilities = await DisplayFacilities();
 
     const composedHTML = 
     `
         <h2>Solar System Mining Marketplace</h2>
-        ${governors}
-        ${colonyInventory}
-        ${facilities}
+        <div class="governor-colony-container">
+            ${governors}
+            ${colonyInventory}
+        </div>
+        <div class="facilities-container">
+            ${facilities}
+        </div>
     `;
 
     container.innerHTML = composedHTML;

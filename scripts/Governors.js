@@ -18,7 +18,7 @@ export const GovernorsDropdown = async () => {
                         ${activeGovernors.map(governor => {
                             const selected = governor.id === state.selectedGovernor ? "selected" : "";
                             return `<option value="${governor.id}" ${selected}>${governor.firstName} ${governor.lastName}</option>`;
-                        }).join("")};
+                        }).join("")}
                     </select>
                 </div>`
 
