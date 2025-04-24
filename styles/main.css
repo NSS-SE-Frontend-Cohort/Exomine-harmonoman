@@ -43,7 +43,24 @@ h1,h2,h3,h4,h5,h6 {
     flex-direction: row;
 }
 
-.inventory {
+.minerals-space_cart-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 24%;
+    margin: 0 2rem;
+    border: 1px dashed rgb(73, 1, 109);
+    padding: 1rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
+}
+
+.colonyInventory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.mineralInventory {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -22,7 +22,7 @@ const render = async () => {
         <div class="facilities-container">
             ${facilities}
         </div>
-        <div class="facility-minerals-container">
+        <div class="minerals-space_cart-container">
             ${facilityMinerals}
         </div>
     `;

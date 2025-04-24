@@ -6,7 +6,7 @@ export const DisplayColonyInventory = () => inventoryHTML;
 
 document.addEventListener("stateChanged", async () => {
     const state = getTransientState();
-    const governorId = state.selectedGovernor
+    const governorId = state.selectedGovernor;
 
     if (governorId != 0) {
         const governors = await fetch("http://localhost:8088/governors?_expand=colony").then(res => res.json());
@@ -19,7 +19,7 @@ document.addEventListener("stateChanged", async () => {
             const colonyInventory = inventories.filter(inv => inv.colonyId === colonyId);
 
             inventoryHTML = `
-                <div class="inventory">
+                <div class="colonyInventory">
                     <h2>${selectedGovernor.colony.name} Inventory</h2>
                     
                     ${colonyInventory.map(inv => `<div>${inv.quantity} tons of ${inv.mineral.name}</div>`).join("")}
