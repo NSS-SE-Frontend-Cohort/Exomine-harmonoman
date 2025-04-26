@@ -176,6 +176,11 @@
             "id": 7,
             "name": "Phoebe Mining Complex",
             "status": true
+        },
+        {
+            "id": 8,
+            "name": "Miranda Outpost",
+            "status": true
         }
     ],
     "minerals": [
@@ -243,7 +248,7 @@
             "id": 2, 
             "facilityId": 1, 
             "mineralId": 3, 
-            "quantity": 90  
+            "quantity": 0  
         },
         {   
             "id": 3, 
