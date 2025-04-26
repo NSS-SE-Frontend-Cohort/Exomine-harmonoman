@@ -2,6 +2,8 @@ import { GovernorsDropdown } from "./Governors.js";
 import { DisplayColonyInventory } from "./ColonyInventories.js"
 import { DisplayFacilities } from "./Facilities.js";
 import { DisplayFacilityMinerals } from "./FacilityMinerals.js";
+import { DisplaySpaceCart } from "./SpaceCart.js";
+import { setMineral } from "./TransientState.js";
 
 const container = document.querySelector("#container");
 
@@ -11,6 +13,7 @@ const render = async () => {
     const colonyInventory = DisplayColonyInventory();
     const facilities = await DisplayFacilities();
     const facilityMinerals = DisplayFacilityMinerals();
+    const spaceCart = DisplaySpaceCart();
 
     const composedHTML = 
     `
@@ -24,6 +27,7 @@ const render = async () => {
         </div>
         <div class="minerals-space_cart-container">
             ${facilityMinerals}
+            ${spaceCart}
         </div>
     `;
 
@@ -36,4 +40,5 @@ document.addEventListener("stateChanged", event => {
     console.log("State of data has changed.  Regenerating HTML...")
     render()
 })
+
 document.addEventListener("reRender", render);
