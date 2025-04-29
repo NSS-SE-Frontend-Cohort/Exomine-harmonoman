@@ -102,7 +102,7 @@ export const purchaseMineral = async () => {
         }   
         
         // PUT an update to the facility mineral count (-1)
-        await updateFacility(facilityQuantity -1);
+        await updateFacility(facilityQuantity - 1);
         
         document.dispatchEvent(new CustomEvent("stateChanged"))
     }

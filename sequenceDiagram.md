@@ -53,12 +53,16 @@
 
         FacilityMinerals->>FacilityMinerals: Filter by facilityId
         alt minerals found
-            alt facility active
-                loop minerals.map()
-                    FacilityMinerals->>FacilityMinerals: Build HTML (radio buttons)
-                end
+            alt all minerals out of stock
+                FacilityMinerals->>FacilityMinerals: Build "out of stock" HTML
             else
-                FacilityMinerals->>FacilityMinerals: Build "inactive" HTML
+                alt facility active
+                    loop minerals.map()
+                        FacilityMinerals->>FacilityMinerals: Build HTML (radio buttons)
+                    end
+                else
+                    FacilityMinerals->>FacilityMinerals: Build "inactive" HTML
+                end
             end
         else
             FacilityMinerals->>FacilityMinerals: Build "no minerals" HTML
@@ -131,6 +135,42 @@
     Browser->>PurchaseMineralButton: User clicks "Purchase" button
 
     PurchaseMineralButton->>TransientState: purchaseMineral()
-    TransientState->>API: POST/PUT purchase transaction
-    API-->>TransientState: Confirm purchase
-    TransientState->>Browser: Dispatch "stateChanged" (trigger whole rebuild cycle)
+    
+    %% Get selected state
+    TransientState->>TransientState: getTransientState()
+
+    %% Fetch governors
+    TransientState->>API: GET /governors
+    API-->>TransientState: Return governors
+    TransientState->>TransientState: Find selected governor
+
+    %% Fetch colonyInventories
+    TransientState->>API: GET /colonyInventories?_expand=mineral
+    API-->>TransientState: Return colony inventories
+    TransientState->>TransientState: Filter for matching colony and mineral
+
+    %% Fetch facilityMinerals
+    TransientState->>API: GET /facilityMinerals
+    API-->>TransientState: Return facility mineral inventory
+    TransientState->>TransientState: Filter for matching facility and mineral
+
+    alt facilityMineral exists and quantity > 0
+        alt colonyMineral exists
+            %% Update existing colony inventory
+            TransientState->>API: PUT /colonyInventories/:id
+            API-->>TransientState: Confirm inventory update
+        else
+            %% Create new colony inventory entry
+            TransientState->>API: POST /colonyInventories
+            API-->>TransientState: Confirm new entry
+        end
+
+        %% Decrement facility inventory
+        TransientState->>API: PUT /facilityMinerals/:id (quantity -1)
+        API-->>TransientState: Confirm facility update
+
+        %% Trigger re-render
+        TransientState->>Browser: Dispatch "stateChanged"
+    else
+        %% No purchase made, out of stock
+    end
