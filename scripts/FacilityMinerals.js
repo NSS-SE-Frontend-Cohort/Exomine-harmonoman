@@ -10,10 +10,10 @@ const buildFacilityMineralsHTML = async () => {
 
     if(facilityId != 0) {
         const inventories = await fetch("http://localhost:8088/facilityMinerals?_expand=facility&_expand=mineral").then(res => res.json());
+        const mineralsArray = inventories.filter(inv => inv.facilityId === facilityId);
+        const allOutOfStock = mineralsArray.every(mineral => mineral.quantity === 0);
 
-            const mineralsArray = inventories.filter(inv => inv.facilityId === facilityId);
-
-            if (mineralsArray.length > 0) {
+            if (mineralsArray.length > 0 && !allOutOfStock) {
                 // Get facility status
                 const facilityIsActive = mineralsArray[0].facility.status;
                 
@@ -25,12 +25,11 @@ const buildFacilityMineralsHTML = async () => {
                             <h2>Facility Minerals for ${mineralsArray[0].facility.name}</h2>
                         
                             ${mineralsArray.map(mineral => { 
-
                                 if(mineral.quantity != 0) {
-                                    const isChecked = state.selectedMineral === mineral.id ? "checked" : "";  
+                                    const isChecked = state.selectedMineral === mineral.mineralId ? "checked" : "";  
                                     return `
                                         <div>
-                                            <input type="radio" name="mineral" value="${mineral.id}" ${isChecked} /> ${mineral.quantity} tons of ${mineral.mineral.name} 
+                                            <input type="radio" name="mineral" value="${mineral.mineralId}" ${isChecked} /> ${mineral.quantity} tons of ${mineral.mineral.name} 
                                         </div>`;
                                 } else {
                                     return`
