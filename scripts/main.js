@@ -3,7 +3,6 @@ import { DisplayColonyInventory } from "./ColonyInventories.js"
 import { DisplayFacilities } from "./Facilities.js";
 import { DisplayFacilityMinerals } from "./FacilityMinerals.js";
 import { DisplaySpaceCart } from "./SpaceCart.js";
-import { setMineral } from "./TransientState.js";
 
 const container = document.querySelector("#container");
 
@@ -37,7 +36,6 @@ const render = async () => {
 render();
 
 document.addEventListener("stateChanged", event => {
-    console.log("State of data has changed.  Regenerating HTML...")
     render()
 })
 

@@ -12,10 +12,10 @@ const buildSpaceCartHTML = async () => {
 
     const minerals = await fetch("http://localhost:8088/facilityMinerals?_expand=mineral&_expand=facility").then(res => res.json());    
 
-    const mineral = minerals.find(min => min.id === mineralId);
+    const mineral = minerals.find(min => min.mineralId === mineralId);
 
     if (mineral) {
-        if (mineral.facility.status) {
+        if (mineral.facility.status && mineral.quantity > 0) {
             // Button is active if facility is active
             spaceCartHTML = `
                 <div class="spaceCart">

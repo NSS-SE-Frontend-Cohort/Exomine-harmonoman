@@ -26,20 +26,84 @@ export const getTransientState = () => {
     return structuredClone(state);
 }
 
-export const purchaseMineral = () => {
-    /*
-        Does the chosen governor's colony already own some of this mineral?
-            - If yes, what should happen?
-            - If no, what should happen?
+export const purchaseMineral = async () => {
+  
+    // Get selected attributes
+    const state = getTransientState();
+    const { selectedGovernor, selectedFacility, selectedMineral } = state;
 
-        Defining the algorithm for this method is traditionally the hardest
-        task for teams during this group project. It will determine when you
-        should use the method of POST, and when you should use PUT.
+    // Get Governors and Colonies
+    const governors = await fetch("http://localhost:8088/governors").then(res => res.json());
+    const governor = governors.find(gov => gov.id === selectedGovernor);
 
-        Only the foolhardy try to solve this problem with code.
-    */
+    // Get Colony Inventory
+    const colonyInventories = await fetch("http://localhost:8088/colonyInventories?_expand=mineral").then(res => res.json());
+    const colonyInventory = colonyInventories.filter(col => col.colonyId === governor.colonyId);
+    const colonyMineral = colonyInventory.find(inv => inv.mineralId === selectedMineral);
 
+    // Get Facility and Mineral
+    const facilityMinerals = await fetch("http://localhost:8088/facilityMinerals").then(res => res.json());
+    const facilityInventory = facilityMinerals.filter(fac => fac.facilityId === selectedFacility);
+    const facilityMineral = facilityInventory.find(fac => fac.mineralId === selectedMineral);
+    const facilityQuantity = facilityMineral.quantity;
 
+    // Helper function to update Facility Inventory
+    const updateFacility = async (newQuantity) => {
+        await fetch(`http://localhost:8088/facilityMinerals/${facilityMineral.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: facilityMineral.id,
+                facilityId: selectedFacility,
+                mineralId: selectedMineral,
+                quantity: newQuantity
+            })
+        })
+    } 
 
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    if(facilityMineral && facilityQuantity > 0) {
+        // If colonyMineral is true
+        if (colonyMineral) {
+            // If mineral is in Colony Inventory
+
+            // PUT an update to the facility mineral count (-1)
+            await fetch(`http://localhost:8088/colonyInventories/${colonyMineral.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: colonyMineral.id,
+                    colonyId: colonyMineral.colonyId,
+                    mineralId: selectedMineral,
+                    quantity: colonyMineral.quantity + 1
+                })
+            })
+
+        } else {
+            // If mineral is NOT in Colony Inventory
+
+            // POST a new mineral to colonyInventory
+            const postDetails = {
+                "colonyId": governor.colonyId,
+                "mineralId": selectedMineral,
+                "quantity": 1
+            }
+
+            const postPurchase = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(postDetails)
+            }
+
+            await fetch("http://localhost:8088/colonyInventories", postPurchase);
+        }   
+        
+        // PUT an update to the facility mineral count (-1)
+        await updateFacility(facilityQuantity -1);
+        
+        document.dispatchEvent(new CustomEvent("stateChanged"))
+    }
 }

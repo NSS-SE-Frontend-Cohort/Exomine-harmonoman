@@ -1,318 +1,320 @@
 {
-    "governors":[
-        {
-            "id": 1,
-            "firstName": "Patricia", 
-            "lastName": "Purdy",
-            "colonyId": 1,  
-            "status": true 
-        },
-        {
-            "id": 2,
-            "firstName": "Lola", 
-            "lastName": "Wolff",
-            "colonyId": 2,
-            "status": true
-        },
-        {
-            "id": 3,
-            "firstName": "Damon", 
-            "lastName": "Hartmann",
-            "colonyId": 1,
-            "status": false
-        },
-        {
-            "id": 4,
-            "firstName": "Katarina", 
-            "lastName": "Bahringer",
-            "colonyId": 3,
-            "status": true
-        },
-        {
-            "id": 5,
-            "firstName": "Quentin",
-            "lastName": "Fahey",
-            "colonyId": 2,
-            "status": false
-        },
-        {
-            "id": 6,
-            "firstName": "Noemi",
-            "lastName": "Pacocha",
-            "colonyId": 3,
-            "status": true
-        },
-        {
-            "id": 7,
-            "firstName": "Ezekiel",
-            "lastName": "Kuhn",
-            "colonyId": 1,
-            "status": true
-        },
-        {
-            "id": 8,
-            "firstName": "Melina",
-            "lastName": "Dare",
-            "colonyId": 2,
-            "status": false
-        }
-    ],
-    "colonies": [
-        {
-            "id": 1,
-            "name": "Earth"
-        },
-        {
-            "id": 2,
-            "name": "Europa"
-        },
-        {
-            "id": 3,
-            "name": "Mars"
-        },
-        {
-            "id": 4,
-            "name": "Titan"
-        },
-        {
-            "id": 5,
-            "name": "Ganymede"
-        },
-        {
-            "id": 6,
-            "name": "Callisto"
-        },
-        {
-            "id": 7,
-            "name": "Ceres"
-        },
-        {
-            "id": 8,
-            "name": "Luna"
-        }
-    ],
-    "colonyInventories": [
-        {
-            "id": 1,
-            "colonyId": 1,
-            "mineralId": 2,
-            "quantity": 150
-        },
-        {
-            "id": 2,
-            "colonyId": 1,
-            "mineralId": 4,
-            "quantity": 80
-        },
-        {
-            "id": 3,
-            "colonyId": 2,
-            "mineralId": 1,
-            "quantity": 200
-        },
-        {
-            "id": 4,
-            "colonyId": 2,
-            "mineralId": 3,
-            "quantity": 60
-        },
-        {
-            "id": 5,
-            "colonyId": 3,
-            "mineralId": 5,
-            "quantity": 120
-        },
-        {
-            "id": 6,
-            "colonyId": 3,
-            "mineralId": 2,
-            "quantity": 95
-        },
-        {
-            "id": 7,
-            "colonyId": 4,
-            "mineralId": 1,
-            "quantity": 40
-        },
-        {
-            "id": 8,
-            "colonyId": 5,
-            "mineralId": 4,
-            "quantity": 300
-        }
-    ],
-    "facilities": [
-        {
-            "id": 1,
-            "name": "Io",
-            "status": true
-        },
-        {
-            "id": 2,
-            "name": "Ganymede",
-            "status": true
-        },
-        {
-            "id": 3,
-            "name": "Titan",
-            "status": false
-        },
-        {
-            "id": 4,
-            "name": "Callisto Station",
-            "status": true
-        },
-        {
-            "id": 5,
-            "name": "Enceladus Core Hub",
-            "status": false
-        },
-        {
-            "id": 6,
-            "name": "Ceres Extractor",
-            "status": true
-        },
-        {
-            "id": 7,
-            "name": "Phoebe Mining Complex",
-            "status": true
-        },
-        {
-            "id": 8,
-            "name": "Miranda Outpost",
-            "status": true
-        }
-    ],
-    "minerals": [
-        {
-            "id": 1,
-            "name": "Titanium"
-        },
-        {
-            "id": 2,
-            "name": "Helium-3"
-        },
-        {
-            "id": 3,
-            "name": "Palladium"
-        },
-        {
-            "id": 4,
-            "name": "Iridium"
-        },
-        {
-            "id": 5,
-            "name": "Lithium"
-        },
-        {
-            "id": 6,
-            "name": "Cobalt"
-        },
-        {
-            "id": 7,
-            "name": "Neodymium"
-        },
-        {
-            "id": 8,
-            "name": "Graphene"
-        },
-        {
-            "id": 9,
-            "name": "Platinum"
-        },
-        {
-            "id": 10,
-            "name": "Water Ice"
-        },
-        {
-            "id": 11,
-            "name": "Iron"
-        },
-        {
-            "id": 12,
-            "name": "Molybdenum"
-        },
-        {
-            "id": 13,
-            "name": "Chromium"
-        }
-    ],
-    "facilityMinerals": [
-        {   
-            "id": 1, 
-            "facilityId": 1, 
-            "mineralId": 1, 
-            "quantity": 120 
-        },
-        {   
-            "id": 2, 
-            "facilityId": 1, 
-            "mineralId": 3, 
-            "quantity": 0  
-        },
-        {   
-            "id": 3, 
-            "facilityId": 2, 
-            "mineralId": 2, 
-            "quantity": 150 
-        },
-        {   
-            "id": 4, 
-            "facilityId": 2, 
-            "mineralId": 4, 
-            "quantity": 65 
-        },
-        {   "id": 5, 
-            "facilityId": 3, 
-            "mineralId": 1, 
-            "quantity": 0 
-        },
-        {   "id": 6, 
-            "facilityId": 3, 
-            "mineralId": 5, 
-            "quantity": 47 
-        },
-        {   
-            "id": 7, 
-            "facilityId": 4, 
-            "mineralId": 6, 
-            "quantity": 210 
-        },
-        {   
-            "id": 8, 
-            "facilityId": 4, 
-            "mineralId": 2, 
-            "quantity": 115 
-        },
-        {   
-            "id": 9, 
-            "facilityId": 5, 
-            "mineralId": 7, 
-            "quantity": 0 
-        },
-        { 
-            "id": 10, 
-            "facilityId": 6, 
-            "mineralId": 8, 
-            "quantity": 134 
-        },
-        { 
-            "id": 11, 
-            "facilityId": 6, 
-            "mineralId": 9, 
-            "quantity": 89 
-        },
-        { 
-            "id": 12, 
-            "facilityId": 7, 
-            "mineralId": 10, 
-            "quantity": 70 
-        },
-        { 
-            "id": 13, 
-            "facilityId": 7, 
-            "mineralId": 3, 
-            "quantity": 96 
-        }
-    ]
+  "governors": [
+    {
+      "id": 1,
+      "firstName": "Patricia",
+      "lastName": "Purdy",
+      "colonyId": 1,
+      "status": true
+    },
+    {
+      "id": 2,
+      "firstName": "Lola",
+      "lastName": "Wolff",
+      "colonyId": 2,
+      "status": true
+    },
+    {
+      "id": 3,
+      "firstName": "Damon",
+      "lastName": "Hartmann",
+      "colonyId": 1,
+      "status": false
+    },
+    {
+      "id": 4,
+      "firstName": "Katarina",
+      "lastName": "Bahringer",
+      "colonyId": 3,
+      "status": true
+    },
+    {
+      "id": 5,
+      "firstName": "Quentin",
+      "lastName": "Fahey",
+      "colonyId": 2,
+      "status": false
+    },
+    {
+      "id": 6,
+      "firstName": "Noemi",
+      "lastName": "Pacocha",
+      "colonyId": 3,
+      "status": true
+    },
+    {
+      "id": 7,
+      "firstName": "Ezekiel",
+      "lastName": "Kuhn",
+      "colonyId": 1,
+      "status": true
+    },
+    {
+      "id": 8,
+      "firstName": "Melina",
+      "lastName": "Dare",
+      "colonyId": 2,
+      "status": false
+    }
+  ],
+  "colonies": [
+    {
+      "id": 1,
+      "name": "Earth"
+    },
+    {
+      "id": 2,
+      "name": "Europa"
+    },
+    {
+      "id": 3,
+      "name": "Mars"
+    },
+    {
+      "id": 4,
+      "name": "Titan"
+    },
+    {
+      "id": 5,
+      "name": "Ganymede"
+    },
+    {
+      "id": 6,
+      "name": "Callisto"
+    },
+    {
+      "id": 7,
+      "name": "Ceres"
+    },
+    {
+      "id": 8,
+      "name": "Luna"
+    }
+  ],
+  "colonyInventories": [
+    {
+      "id": 1,
+      "colonyId": 1,
+      "mineralId": 2,
+      "quantity": 159
+    },
+    {
+      "id": 2,
+      "colonyId": 1,
+      "mineralId": 4,
+      "quantity": 88
+    },
+    {
+      "id": 3,
+      "colonyId": 2,
+      "mineralId": 1,
+      "quantity": 200
+    },
+    {
+      "id": 4,
+      "colonyId": 2,
+      "mineralId": 3,
+      "quantity": 60
+    },
+    {
+      "id": 5,
+      "colonyId": 3,
+      "mineralId": 5,
+      "quantity": 120
+    },
+    {
+      "id": 6,
+      "colonyId": 3,
+      "mineralId": 2,
+      "quantity": 95
+    },
+    {
+      "id": 7,
+      "colonyId": 4,
+      "mineralId": 1,
+      "quantity": 40
+    },
+    {
+      "id": 8,
+      "colonyId": 5,
+      "mineralId": 4,
+      "quantity": 300
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Io",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Ganymede",
+      "status": true
+    },
+    {
+      "id": 3,
+      "name": "Titan",
+      "status": false
+    },
+    {
+      "id": 4,
+      "name": "Callisto Station",
+      "status": true
+    },
+    {
+      "id": 5,
+      "name": "Enceladus Core Hub",
+      "status": false
+    },
+    {
+      "id": 6,
+      "name": "Ceres Extractor",
+      "status": true
+    },
+    {
+      "id": 7,
+      "name": "Phoebe Mining Complex",
+      "status": true
+    },
+    {
+      "id": 8,
+      "name": "Miranda Outpost",
+      "status": true
+    }
+  ],
+  "minerals": [
+    {
+      "id": 1,
+      "name": "Titanium"
+    },
+    {
+      "id": 2,
+      "name": "Helium-3"
+    },
+    {
+      "id": 3,
+      "name": "Palladium"
+    },
+    {
+      "id": 4,
+      "name": "Iridium"
+    },
+    {
+      "id": 5,
+      "name": "Lithium"
+    },
+    {
+      "id": 6,
+      "name": "Cobalt"
+    },
+    {
+      "id": 7,
+      "name": "Neodymium"
+    },
+    {
+      "id": 8,
+      "name": "Graphene"
+    },
+    {
+      "id": 9,
+      "name": "Platinum"
+    },
+    {
+      "id": 10,
+      "name": "Water Ice"
+    },
+    {
+      "id": 11,
+      "name": "Iron"
+    },
+    {
+      "id": 12,
+      "name": "Molybdenum"
+    },
+    {
+      "id": 13,
+      "name": "Chromium"
+    }
+  ],
+  "facilityMinerals": [
+    {
+      "id": 1,
+      "facilityId": 1,
+      "mineralId": 1,
+      "quantity": 99
+    },
+    {
+      "id": 2,
+      "facilityId": 1,
+      "mineralId": 3,
+      "quantity": 69
+    },
+    {
+      "id": 3,
+      "facilityId": 2,
+      "mineralId": 2,
+      "quantity": 142
+    },
+    {
+      "id": 4,
+      "facilityId": 2,
+      "mineralId": 4,
+      "quantity": 54
+    },
+    {
+      "id": 5,
+      "facilityId": 3,
+      "mineralId": 1,
+      "quantity": 0
+    },
+    {
+      "id": 6,
+      "facilityId": 3,
+      "mineralId": 5,
+      "quantity": 47
+    },
+    {
+      "id": 7,
+      "facilityId": 4,
+      "mineralId": 6,
+      "quantity": 207
+    },
+    {
+      "id": 8,
+      "facilityId": 4,
+      "mineralId": 2,
+      "quantity": 109
+    },
+    {
+      "id": 9,
+      "facilityId": 5,
+      "mineralId": 7,
+      "quantity": 0
+    },
+    {
+      "id": 10,
+      "facilityId": 6,
+      "mineralId": 8,
+      "quantity": 129
+    },
+    {
+      "id": 11,
+      "facilityId": 6,
+      "mineralId": 9,
+      "quantity": 86
+    },
+    {
+      "id": 12,
+      "facilityId": 7,
+      "mineralId": 10,
+      "quantity": 67
+    },
+    {
+      "id": 13,
+      "facilityId": 7,
+      "mineralId": 3,
+      "quantity": 93
+    }
+  ]
 }
